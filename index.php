@@ -1,4 +1,29 @@
+<?php 
+    $messageenvoye = false;
+    if( isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['sujet']) && !empty($_POST['sujet']) && isset($_POST['description']) && !empty($_POST['description'])){
+        if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+        
+        $utilisateur = $_POST['nom'];
+        $email = $_POST['email'];
+        $sujet = $_POST['sujet'];
+        $description = nl2br($_POST['description']);
+    
+        $monMail = "soyassine7@gmail.com";
+        $body = "";
+        $body.= "De : ".$utilisateur."\r\n";
+        $body.= "Email : ".$email."\r\n";
+        $body.= "Message : ".$description."\r\n";
+    
+        mail($monMail,$sujet,$body);
+        $messageenvoye = true;
+        }
 
+    }
+    else{
+        $msg = "Tous les champs doivent être complétés !";
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -224,24 +249,35 @@
                     <form action="index.php" method="POST">
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" name="nom" placeholder="Nom" required>
+                                <input type="text" name="nom" placeholder="Nom" required value="<?php if( isset($_POST['nom']) ){ echo $_POST['nom']; }?>">
                             </div>
                             <div class="field email">
-                                <input type="email" name="email" placeholder="E-mail" required >
+                                <input type="email" name="email" placeholder="E-mail" requiredvalue="<?php if( isset($_POST['email']) ){ echo $_POST['email']; }?>">
                             </div>
                         </div>
                         <div class="field">
-                            <input type="text" name="sujet" placeholder="Sujet" required>
+                            <input type="text" name="sujet" placeholder="Sujet" required value="<?php if( isset($_POST['sujet']) ){ echo $_POST['sujet']; }?>">
                         </div>
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" name="description" placeholder="Decription du projet.." required ></textarea>
+                            <textarea cols="30" rows="10" name="description" placeholder="Decription du projet.." required value="<?php if( isset($_POST['description']) ){ echo $_POST['description']; }?>"></textarea>
                         </div>
                         <div class="button">
                             <button type="submit">Envoyer</button>
                         </div>
                     </form>
-                    
-
+                    <?php
+                        if($messageenvoye):
+                    ?>
+                    <br></br>
+                    <h3>Merci, je vous contacterai dans les plus brefs délais</h3>
+                    <?php
+                        if(isset($msg)){
+                            echo $msg;
+                        }
+                    ?>
+                    <?php elseif ($messageenvoye==true && isset($_POST['email']) ) : ?>
+                        <h3>Une erreur est survenue</h3>
+                    <?php endif ?>
                 </div>
             </div>
         </div>
