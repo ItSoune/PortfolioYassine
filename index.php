@@ -264,20 +264,31 @@
                         <div class="button">
                             <button type="submit">Envoyer</button>
                         </div>
+                        <div class="field name">
+                            <img src="captcha.php" />
+                                <input type="text"  name="captcha" placeholder="Réponse captcha" required/>
+                        </div>
                     </form>
+
+                    
                     <?php
-                        if($messageenvoye):
-                    ?>
-                    <br></br>
-                    <h3>Merci, je vous contacterai dans les plus brefs délais</h3>
-                    <?php
-                        if(isset($msg)){
-                            echo $msg;
+                    if (isset($_GET['resultat'])){
+                        if ($_GET['resultat'] == "reussi"){
+                            echo "<br></br>
+                            <h3>Merci, je vous contacterai dans les plus brefs délais</h3>";
                         }
+                        elseif($_GET['resultat'] == "pasreussi") {
+                            echo "<br></br>
+                            <h3>Une erreur est survenue</h3>";
+                        }
+                        elseif($_GET['resultat'] == "captcha") {
+                            echo "<br></br>
+                            <h3>Captcha non valide</h3>";
+                        }
+                    
+                    }
                     ?>
-                    <?php elseif ($messageenvoye==true && isset($_POST['email']) ) : ?>
-                        <h3>Une erreur est survenue</h3>
-                    <?php endif ?>
+                    
                 </div>
             </div>
         </div>
