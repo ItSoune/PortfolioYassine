@@ -226,17 +226,17 @@
                     <form action="contactForm.php" method="POST">
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" name="nom" placeholder="Nom" required value="<?php if( isset($_POST['nom']) ){ echo $_POST['nom']; }?>">
+                                <input type="text" name="nom" placeholder="Nom" required >
                             </div>
                             <div class="field email">
-                                <input type="email" name="email" placeholder="E-mail" requiredvalue="<?php if( isset($_POST['email']) ){ echo $_POST['email']; }?>">
+                                <input type="email" name="email" placeholder="E-mail" >
                             </div>
                         </div>
                         <div class="field">
-                            <input type="text" name="sujet" placeholder="Sujet" required value="<?php if( isset($_POST['sujet']) ){ echo $_POST['sujet']; }?>">
+                            <input type="text" name="sujet" placeholder="Sujet" required >
                         </div>
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" name="description" placeholder="Decription du projet.." required value="<?php if( isset($_POST['description']) ){ echo $_POST['description']; }?>"></textarea>
+                            <textarea cols="30" rows="10" name="description" placeholder="Decription du projet.." ></textarea>
                         </div>
                         <div class="field captcha">
                             <img src="captcha.php" id = captcha />
