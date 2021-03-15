@@ -133,22 +133,24 @@
             <div class="competences-content">
                 <div class="column left">
                     <div class="text">Mes compétences et expériences.</div>
+                    <h5><i class="fas fa-exclamation-triangle"></i> Les compétences et expériences listées sur ce site concernent uniquement le développement web.</h5>
+                    <br></br>
                     <p>Durant ma formation, j'ai acquis de nombreuses compétences et connaissances en informatique notamment en programmation en tant que développeur Front-End : HTML, CSS , Javascript, jQuery et Bootstrap. Et en tant que développeur Back-End
                         : PHP, et SQL. Ainsi qu'en administration des serveurs : serveurs Apache, Protocole HTTP, réseaux TCP/IP. <br></br>
 
                         <h4>Projets et expériences professionnelles :</h4>
                         <span id="suite">
                             <br></br>
-                            <h4>• Création de ce Portfolio.</h4>
-                            Langages utilisés :  HTML et CSS, Javascript. 
+                            <h5>• Création de ce Portfolio dynamique et responsif sur téléphone.</h5>
+                            Langages utilisés :  HTML et CSS, Javascript, PHP. 
                             <br></br>
-                            <h4>• Webmaster du site web E-commerce <a href=https://super-phone.fr>super-phone.fr</a>  avec API.</h4>
+                            <h5>• Projet création d'un site web de jeux dynamique et responsif sur téléphone. <a href=http://jeudeviner.epizy.com>jeudeviner.epizy.com</a> </h5>
                             Langages utilisés :  Php, Javascript, HTML et CSS.
                             <br></br>
-                            <h4>• Projet création d'un site web de jeux ( jeux : Deviner le chiffre)</h4>
+                            <h5>• Gestion et amélioration du site web E-commerce <a href=https://super-phone.fr>super-phone.fr</a> avec API.</h5>
                             Langages utilisés :  Php, Javascript, HTML et CSS.
                             <br></br>
-                            <h4>• Projet création d'un site web informatif.</h4>
+                            <h5>• Projet création d'un site web informatif standard.</h5>
                             Langages utilisés :  HTML et CSS, Javascript.
  
                         </span>
@@ -219,7 +221,7 @@
             <div class="contact-content">
                 <div class="column left">
                     <div class="text">N'hésitez pas à me contacter</div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias consequuntur, ipsa enim officia itaque sint sed accusantium dolor rem voluptate.</p>
+                    
                     <div class="icons">
                         <div class="row">
                             <i class="fas fa-user"></i>
@@ -242,11 +244,12 @@
                                 <div class="sub-title">bouchdi.yassine1@gmail.com</div>
                             </div>
                         </div>
+                        <h4><i class="fas fa-exclamation-triangle"></i> L'hébergeur web de ce site web est gratuit, il n'offre pas de service mail. Merci de me contacter par adresse mail directement : bouchdi.yassine1@gmail.com .</h4>
                     </div>
                 </div>
                 <div class="column right">
                     <div class="text">M'envoyer un message</div>
-                    <form action="index.php" method="POST">
+                    <form action="contactForm.php" method="POST">
                         <div class="fields">
                             <div class="field name">
                                 <input type="text" name="nom" placeholder="Nom" required value="<?php if( isset($_POST['nom']) ){ echo $_POST['nom']; }?>">
@@ -261,13 +264,14 @@
                         <div class="field textarea">
                             <textarea cols="30" rows="10" name="description" placeholder="Decription du projet.." required value="<?php if( isset($_POST['description']) ){ echo $_POST['description']; }?>"></textarea>
                         </div>
+                        <div class="field captcha">
+                            <img src="captcha.php" id = captcha />
+                                <input type="text"  name="captcha" placeholder="Réponse captcha" required/>
+                        </div>
                         <div class="button">
                             <button type="submit">Envoyer</button>
                         </div>
-                        <div class="field name">
-                            <img src="captcha.php" />
-                                <input type="text"  name="captcha" placeholder="Réponse captcha" required/>
-                        </div>
+
                     </form>
 
                     
