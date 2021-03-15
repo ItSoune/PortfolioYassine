@@ -1,29 +1,3 @@
-<?php 
-    $messageenvoye = false;
-    if( isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['sujet']) && !empty($_POST['sujet']) && isset($_POST['description']) && !empty($_POST['description'])){
-        if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-        
-        $utilisateur = $_POST['nom'];
-        $email = $_POST['email'];
-        $sujet = $_POST['sujet'];
-        $description = nl2br($_POST['description']);
-    
-        $monMail = "soyassine7@gmail.com";
-        $body = "";
-        $body.= "De : ".$utilisateur."\r\n";
-        $body.= "Email : ".$email."\r\n";
-        $body.= "Message : ".$description."\r\n";
-    
-        mail($monMail,$sujet,$body);
-        $messageenvoye = true;
-        }
-
-    }
-    else{
-        $msg = "Tous les champs doivent être complétés !";
-    }
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -275,24 +249,7 @@
                     </form>
 
                     
-                    <?php
-                    if (isset($_GET['resultat'])){
-                        if ($_GET['resultat'] == "reussi"){
-                            echo "<br></br>
-                            <h3>Merci, je vous contacterai dans les plus brefs délais</h3>";
-                        }
-                        elseif($_GET['resultat'] == "pasreussi") {
-                            echo "<br></br>
-                            <h3>Une erreur est survenue</h3>";
-                        }
-                        elseif($_GET['resultat'] == "captcha") {
-                            echo "<br></br>
-                            <h3>Captcha non valide</h3>";
-                        }
-                    
-                    }
-                    ?>
-                    
+                   
                 </div>
             </div>
         </div>
